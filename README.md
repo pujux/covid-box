@@ -10,23 +10,21 @@
 
 ## Setup
 
+
+### Prep work
+
+1. Create a new public GitHub Gist (https://gist.github.com/)
+2. Create a personal access token with the `gist` scope and copy it. (https://github.com/settings/tokens/new)
+
+### Project setup
+
 1. Fork this repository
-2. Create a new public GitHub Gist (https://gist.github.com/) and add the ID as secret 'GIST_ID'
-`https://gist.github.com/puf17640/`***f091f6edaca9b14d5a149983526feb63***
-3. [Create a Personal Access Token](https://github.com/settings/tokens/new) with the `gist` scope and add it as secret 'GH_PAT'.
-4. (Optional) If you want to show a specific countrys data, add secret COUNTRY with the name of the country, available names can be found on https://worldometers.info/coronavirus
-5. Wait for it to update! 🎉
-
-### Example Secrets
-```
-GIST_ID=f091f6edaca9b14d5a149983526feb63
-GH_PAT=e276fb5f5dcf867246406ce66d9d409*********
-COUNTRY=Austria
-```
-
-### How to add Secrets
-
-After forking the repository, you can access the Secrets Tab in the Settings.
+2. Go to the repo **Settings > Secrets**
+3. Add the following environment variables:
+   - **GH_PAT:** The personal access token generated above.
+   - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/puf17640/`**`f091f6edaca9b14d5a149983526feb63`**.
+   - **COUNTRY:** Specify a country name to show country specific data, if omitted, Global data is shown.
+4. Wait for it to update! 🎉
 
 ## Credits
 
