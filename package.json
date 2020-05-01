@@ -1,7 +1,7 @@
 {
   "name": "covid-box",
   "version": "0.0.1",
-  "description": "⚡️📌️ Update a gist to contain global or per country coronavirus stats",
+  "description": "🦠 Update a gist to contain global or per country coronavirus stats",
   "main": "index.js",
   "scripts": {
     "lint": "eslint './index.js'"
