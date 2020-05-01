@@ -20,7 +20,7 @@ Toolkit.run(async tools => {
 	tools.log.debug(`Successfully fetched ${data.country || 'Global'} data from the API.`)
 
 	const content = table(gutter([
-		[data.country ? `${emoji.get(`flag-${data.countryInfo.iso2.toLowerCase()}`)}${data.country}` : '🌍 Global', moment(data.updated).calendar()],
+		[data.country ? `${emoji.get(`flag-${data.countryInfo.iso2.toLowerCase()}`)}${data.country}` : '🌍 Global', moment(data.updated).fromNow()],
 		['🤒Active:', `${data.active}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
 		['😌Recovered:', `${data.recovered}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
 		['💀Deaths:', `${data.deaths}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
