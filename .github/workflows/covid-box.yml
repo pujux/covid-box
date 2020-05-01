@@ -14,5 +14,5 @@ jobs:
         env:
           GH_PAT: ${{ secrets.GH_PAT }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          COUNRRY: Austria
-          GIST_ID: f091f6edaca9b14d5a149983526feb63
+          COUNTRY: ${{ secrets.COUNTRY }}
+          GIST_ID: ${{ secrets.GIST_ID }}
