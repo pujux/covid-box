@@ -1,0 +1,47 @@
+{
+  "name": "covid-box",
+  "version": "0.0.1",
+  "description": "⚡️📌️ Update a gist to contain global or per country coronavirus stats",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint './index.js'"
+  },
+  "author": "puf17640",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/puf17640/covid-box.git"
+  },
+  "keywords": [
+    "github-action",
+    "novelcovid",
+    "coronavirus"
+  ],
+  "bugs": {
+    "url": "https://github.com/puf17640/covid-box/issues"
+  },
+  "homepage": "https://github.com/puf17640/covid-box#readme",
+  "dependencies": {
+    "actions-toolkit": "^2.2.0",
+    "covidapi": "0.3.0",
+    "dotenv": "^8.2.0",
+    "gist-box": "^0.3.1",
+    "moment": "^2.24.0",
+    "node-emoji": "1.10.0",
+    "text-table": "^0.2.0"
+  },
+  "devDependencies": {
+    "@aero/eslint-config": "^1.0.1",
+    "eslint": "^6.8.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/tests/setup.js"
+    ]
+  }
+}
