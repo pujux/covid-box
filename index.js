@@ -25,7 +25,7 @@ Toolkit.run(async tools => {
 		['😌Recovered:', `${data.recovered}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
 		['💀Deaths:', `${data.deaths}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
 		['💉Tests:', `${data.tests}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')]
-	]), { align: ['l', 'r'], stringLength: (str) => data.country && (str.includes('PM') || str.includes('AM')) ? str.length - 2 : str.length })
+	]), { align: ['l', 'r'], stringLength: (str) => data.country && str.includes('ago') ? str.length - 2 : str.length })
 
 	const box = new GistBox({ id: GIST_ID, token: GH_PAT })
 	try {
