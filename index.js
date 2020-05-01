@@ -4,7 +4,12 @@ const api = require('covidapi'),
 	moment = require('moment'),
 	emoji = require('node-emoji'),
 	{ Toolkit } = require('actions-toolkit'),
-	{ GistBox } = require('gist-box')
+	{ GistBox, MAX_LENGTH } = require('gist-box')
+
+const gutter = (rows) => rows.map(row => {
+	row[1] = ' '.repeat(MAX_LENGTH - 14 - row[0].length - row[1].length) + row[1]
+	return row
+})
 
 Toolkit.run(async tools => {
 	const { GIST_ID, GH_PAT, COUNTRY } = process.env
@@ -14,13 +19,13 @@ Toolkit.run(async tools => {
 	const data = COUNTRY ? await api.countries({ country: COUNTRY }) : await api.all()
 	tools.log.debug(`Successfully fetched ${data.country || 'Global'} data from the API.`)
 
-	const content = table([
-		[data.country ? `${emoji.get(`flag-${data.countryInfo.iso2.toLowerCase()}`)}${data.country}` : '🌍 Global', moment(data.updated).fromNow()],
-		['🤒Active:', String(data.active).replace(/(.)(?=(\d{3})+$)/g, '$1,')],
-		['😌Recovered:', String(data.recovered).replace(/(.)(?=(\d{3})+$)/g, '$1,')],
-		['💀Deaths:', String(data.deaths).replace(/(.)(?=(\d{3})+$)/g, '$1,')],
-		['💉Tests:', String(data.tests).replace(/(.)(?=(\d{3})+$)/g, '$1,')]
-	], { align: ['l', 'r'], stringLength: (str) => str.includes('ago') ? str.length - 2 : str.length })
+	const content = table(gutter([
+		[data.country ? `${emoji.get(`flag-${data.countryInfo.iso2.toLowerCase()}`)}${data.country}` : '🌍 Global', moment(data.updated).calendar()],
+		['🤒Active:', `${data.active}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
+		['😌Recovered:', `${data.recovered}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
+		['💀Deaths:', `${data.deaths}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')],
+		['💉Tests:', `${data.tests}`.replace(/(.)(?=(\d{3})+$)/g, '$1,')]
+	]), { align: ['l', 'r'], stringLength: (str) => data.country && (str.includes('PM') || str.includes('AM')) ? str.length - 2 : str.length })
 
 	const box = new GistBox({ id: GIST_ID, token: GH_PAT })
 	try {
