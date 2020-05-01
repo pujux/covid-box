@@ -7,7 +7,7 @@ const api = require('covidapi'),
 	{ GistBox, MAX_LENGTH } = require('gist-box')
 
 const gutter = (rows) => rows.map(row => {
-	row[1] = ' '.repeat(MAX_LENGTH - 14 - row[0].length - row[1].length) + row[1]
+	row[1] = ' '.repeat(5) + row[1]
 	return row
 })
 
