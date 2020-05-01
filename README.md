@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="400" src="https://user-images.githubusercontent.com/17516174/80776562-f4e62200-8b62-11ea-8b05-73ebf7af2d96.png">
+  <img width="400" src="https://user-images.githubusercontent.com/17516174/80777987-3d074380-8b67-11ea-99c8-a37121e95010.png">
   <h1 align="center">COVID-Box</h1>
   <p align="center">🦠 Update a gist to contain global or per country coronavirus stats</p>
   <p align="center"><strong>covid-box</strong> is a GitHub Action that is designed to work using the <a href="https://developer.github.com/actions/managing-workflows/creating-and-cancelling-a-workflow/#scheduling-a-workflow"><code>schedule</code></a> event.</p>
