@@ -1,0 +1,18 @@
+name: COVID Box
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+      - uses: puf17640/covid-box@master
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          COUNRRY: Austria
+          GIST_ID: f091f6edaca9b14d5a149983526feb63
