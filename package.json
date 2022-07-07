@@ -26,7 +26,7 @@
     "covidapi": "0.3.0",
     "dotenv": "^8.2.0",
     "gist-box": "^0.3.1",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "node-emoji": "1.10.0",
     "text-table": "^0.2.0"
   },
